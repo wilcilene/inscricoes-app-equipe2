@@ -1,4 +1,6 @@
-# Sistema de Gerenciamento de Inscrições e Editais
+<p align="center">
+    <h1> Sistema de Gerenciamento de Inscrições e Editais </h1>
+</p>
 
 <p align="center">
   <img src="https://imgur.com/ezNrNOo.png" width="200">
