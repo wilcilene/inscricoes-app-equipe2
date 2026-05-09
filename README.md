@@ -1,11 +1,8 @@
-<p align="center">
-    <strong>Sistema de Gerenciamento de Inscrições e Editais</strong>
-</p>
-
+#Sistema de Gerenciamento de Inscrições e Editais
 
 ---
 
-# Alunos perticipantes:
+### Alunos participantes:
 Ana Luiza Corrêa, César Castro, Daniel Mendes, Henrique Avancini, Laura Mondin, Leonardo Denck, Lucas Pitta, Victor Conti, Vitor de Souza e William Sant` ana. 
 
 --- 
