@@ -1,7 +1,18 @@
-# Sistema de Inscrição em Editais 
+<p align="center">
+    <strong>Sistema de Gerenciamento de Inscrições e Editais</strong>
+</p>
 
-Este projeto é uma plataforma para gestão de editais, permitindo desde a criação de conta do candidato até a verificação automatizada de resultados (aprovação ou reprovação).
 
+---
+
+# Alunos perticipantes:
+Ana Luiza Corrêa, César Castro, Daniel Mendes, Henrique Avancini, Laura Mondin, Leonardo Denck, Lucas Pitta, Victor Conti, Vitor de Souza e William Sant` ana. 
+
+--- 
+
+Este projeto é uma plataforma para gestão de editais, permitindo desde a criação de conta do candidato até a verificação automatizada de resultados (aprovação ou reprovação). 
+
+---
 ## 1.  Sobre o Projeto
 O sistema visa simplificar o processo de inscrição em processos seletivos. Ele valida os dados do usuário, processa a candidatura em editais ativos e gera uma lista de classificação baseada em critérios pré-definidos.
 
