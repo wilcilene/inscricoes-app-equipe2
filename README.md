@@ -33,6 +33,7 @@ O sistema visa simplificar o processo de inscrição em processos seletivos. Ele
 
 ## 4. Demonstração
 .[Tela de Inscrição](https://www.figma.com/proto/Eyk1Fny59tbVx6ez68RLpq/Prot%C3%B3tipo---Inscri%C3%A7%C3%B5es?node-id=339-550)
+<br>
 *Legenda: Interface principal onde o usuário escolhe o edital disponível.*
 
 ## 5. Instalação e Configuração
