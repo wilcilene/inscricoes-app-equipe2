@@ -9,7 +9,7 @@
 ---
 
 ### Alunos participantes:
-Ana Luiza Corrêa, César Castro, Daniel Mendes, Henrique Avancini, Laura Mondin, Leonardo Denck, Lucas Pitta, Victor Conti, Vitor de Souza, Saulo Resende e William Sant` ana. 
+Ana Luiza Corrêa, César Castro, Daniel Mendes, Henrique Avancini, Laura Mondin, Leonardo Denck, Lucas Pitta, Victor Conti, Vitor de Souza, Saulo Resende e William Sant' ana. 
 
 --- 
 
