@@ -39,11 +39,75 @@ O sistema visa simplificar o processo de inscrição em processos seletivos. Ele
 ## 5. Instalação e Configuração
 
 ### Pré-requisitos
+
+Antes de iniciar, é necessário ter instalado:
+
 - PHP 8.x
 - Composer
+- Node.js e NPM
+- MySQL
 - XAMPP (ou outro ambiente Apache/MySQL)
+- Git
 
 ### Passo a Passo
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/seu-usuario/nome-do-projeto.git](https://github.com/seu-usuario/nome-do-projeto.git)
+
+1. **Clone o repositório**
+```bash
+git clone https://github.com/seu-usuario/nome-do-projeto.git
+```
+
+2. **Acesse a pasta do projeto**
+```bash
+cd nome-do-projeto
+```
+
+3. **Instale as dependências do PHP**
+```bash
+composer install
+```
+
+4. **Instale as dependências do front-end**
+```bash
+npm install
+```
+
+5. **Crie o arquivo `.env`**
+```bash
+cp .env.example .env
+```
+
+6. **Configure o banco de dados**
+
+Abra o arquivo `.env` e configure:
+
+```env
+DB_DATABASE=nome_do_banco
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+7. **Gere a chave da aplicação**
+```bash
+php artisan key:generate
+```
+
+8. **Execute as migrations**
+```bash
+php artisan migrate
+```
+
+9. **Inicie o servidor**
+```bash
+php artisan serve
+```
+
+10. **Inicie o Vite**
+```bash
+npm run dev
+```
+
+Após isso, o sistema estará disponível em:
+
+```txt
+http://127.0.0.1:8000
+```
