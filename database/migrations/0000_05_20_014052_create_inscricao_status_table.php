@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inscricao_status', function (Blueprint $table) {
+        Schema::create('inscricao_status_table', function (Blueprint $table) {
             $table->id();                                    // chave primária
             $table->string('status', 255);                   // status VARCHAR(255)
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inscricao_status');
+        Schema::dropIfExists('inscricao_status_table');
     }
 };
