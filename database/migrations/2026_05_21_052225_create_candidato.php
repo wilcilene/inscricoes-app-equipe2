@@ -11,9 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inscricao_status_table', function (Blueprint $table) {
-            $table->id();                                    // chave primária
-            $table->string('status', 255);                   // status VARCHAR(255)
+        Schema::create('candidato', function (Blueprint $table) {
+
+            $table->id();
+
+            $table->string('cpf',255);
+
+            $table->date('data_nascimento');
+
+            $table->unsignedBigInteger('usuario_id');
+
+            $table->foreign('usuario_id')
+                ->references('id')
+                ->on('users');
+
             $table->timestamps();
         });
     }
@@ -23,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inscricao_status_table');
+        Schema::dropIfExists('candidato');
     }
 };
