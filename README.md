@@ -22,10 +22,15 @@ Este projeto é uma plataforma para gestão de editais, permitindo desde a cria�
 O sistema visa simplificar o processo de inscrição em processos seletivos. Ele valida os dados do usuário, processa a candidatura em editais ativos e gera uma lista de classificação baseada em critérios pré-definidos.
 
 ## 2. Tecnologias
-*   **Backend:** PHP (Laravel / Composer)
-*   **Frontend:** HTML5, CSS3, JavaScript
-*   **Banco de Dados:** MySQL
-*   **Servidor Local:** XAMPP
+
+* **Backend:** PHP / Laravel
+* **Frontend:** Blade, Bootstrap, JavaScript
+* **Autenticação:** Laravel Breeze
+* **Build Tool:** Vite
+* **Banco de Dados:** MySQL
+* **Gerenciamento de Dependências:** Composer e NPM
+* **Servidor Local:** XAMPP
+* **Versionamento:** Git e GitHub
 
 ## 3. Funcionalidades
 - [x] **Cadastro de Usuários:** Criação de conta com validação de CPF/E-mail.
