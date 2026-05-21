@@ -44,8 +44,8 @@ O sistema visa simplificar o processo de inscrição em processos seletivos. Ele
 ### Tela de Mural de editais
 
 <p align="center">
-  <a href="https://www.figma.com/proto/Eyk1Fny59tbVx6ez68RLpq/Prot%C3%B3tipo---Inscri%C3%A7%C3%B5es?node-id=339-550" target="_blank">
-    <img src="https://i.imgur.com/BNVjDVp.png" width="700">
+  <a href="https://www.figma.com/proto/Eyk1Fny59tbVx6ez68RLpq/Prot%C3%B3tipo---Inscri%C3%A7%C3%B5es?node-id=339-550">
+    <img src="https://i.imgur.com/BNVjDVp.png" target="_blank" width="700">
   </a>
 </p>
 
