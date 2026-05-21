@@ -3,7 +3,9 @@
 </p>
 
 <p align="center">
-  <img src="https://imgur.com/ezNrNOo.png" width="200">
+    <a href="#demo">
+      <img src="https://i.imgur.com/ezNrNOo.png" width="200">
+    </a>
 </p>
 
 ---
@@ -31,9 +33,17 @@ O sistema visa simplificar o processo de inscrição em processos seletivos. Ele
 - [x] **Inscrição:** Fluxo de submissão de documentos e formulários.
 - [x] **Painel de Resultados:** Verificação de status (Aprovado/Reprovado) com busca por nome ou documento.
 
+<a id="demo"></a>
+
 ## 4. Demonstração
-.[Tela de Inscrição](https://www.figma.com/proto/Eyk1Fny59tbVx6ez68RLpq/Prot%C3%B3tipo---Inscri%C3%A7%C3%B5es?node-id=339-550)
-<br>
+### Tela de Mural de editais
+
+<p align="center">
+  <a href="https://www.figma.com/proto/Eyk1Fny59tbVx6ez68RLpq/Prot%C3%B3tipo---Inscri%C3%A7%C3%B5es?node-id=339-550">
+    <img src="https://i.imgur.com/BNVjDVp.png" width="700">
+  </a>
+</p>
+
 *Legenda: Interface principal onde o usuário escolhe o edital disponível.*
 
 ## 5. Instalação e Configuração
