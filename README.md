@@ -68,7 +68,7 @@ Antes de iniciar, é necessário ter instalado:
 
 1. **Clone o repositório**
 ```bash
-git clone https://github.com/seu-usuario/nome-do-projeto.git
+https://github.com/wilcilene/inscricoes-app-equipe2.git
 ```
 
 2. **Acesse a pasta do projeto**
