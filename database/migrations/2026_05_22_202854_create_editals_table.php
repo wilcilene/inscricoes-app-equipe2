@@ -11,19 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('candidatos_table', function (Blueprint $table) {
+         Schema::create('editals', function (Blueprint $table) {
 
             $table->id();
 
-            $table->string('cpf',255);
+            $table->string('nome',255);
 
-            $table->date('data_nascimento');
+            $table->text('descricao');
 
-            $table->unsignedBigInteger('usuario_id');
+            $table->date('data_inicio_inscr');
 
-            $table->foreign('usuario_id')
-                ->references('id')
-                ->on('usuario_table');
+            $table->date('data_fim_inscr');
+
+            $table->date('data_inicio_rev');
+
+            $table->date('data_fim_rev');
 
             $table->timestamps();
         });
@@ -34,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('candidatos_table');
+        Schema::dropIfExists('editals');
     }
 };
