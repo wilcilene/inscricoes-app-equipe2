@@ -1,0 +1,261 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    max-width: 1920px;
+    background-color: #2426281a;
+}
+.main-container .wrap {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.a {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+}
+.a .containerPesquisa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #242628b2;
+    background-color: transparent;
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    margin: 30px 0px 30px 0px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    border-width: 1.5px;
+    angle: 0 deg;
+    opacity: 1;
+    top: 72px;
+    left: 1147px;
+}
+
+.containerPesquisa .lupa {
+    height: 17px;
+    width: 17px;
+}
+.containerPesquisa .busca input {
+    width: 150px;
+    background-color: transparent;
+    border: 0px;
+    color: #242628b2;
+}
+
+.containerPesquisa .filtro {
+    border-left: 2px solid gray;
+    padding: 10px;
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-subtitulo .titulo {
+    font-family: Outfit;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 40px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin: 25px 0 px 25px 0px;
+}
+.containerPesquisa {
+    width: 100%;
+    max-width: 50px;
+    height: 20px;
+}
+
+.a h1 {
+    color: #242628e5;
+    margin: 0px;
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    max-width: 300px;
+    height: 250px;
+    max-height: 300px;
+    border-radius: 8px;
+    angle: 0 deg;
+    opacity: 1;
+    border-top-width: 10px;
+    background: white;
+    border-top: 6px solid #2f9d40;
+}
+.card .edital {
+    text-align: center;
+    color: #242628e5;
+    font-family: Outfit;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 28px;
+    margin-top: 10px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+.card .tipoEdital {
+    text-align: center;
+    font-family: Inter;
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #242628e5;
+}
+.card .img-calendario {
+    width: 20px;
+    height: 20px;
+    margin: 30px 0px 30px 0px;
+}
+.card .datalimite {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 30px;
+    border-radius: 8px;
+    angle: 0 deg;
+    opacity: 1;
+    gap: 10px;
+    top: 134px;
+    left: 30px;
+    padding-top: 7px;
+    padding-right: 10px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    background-color: #2426281a;
+}
+
+.data {
+    font-family: Inter;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 15px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #242628e5;
+}
+.card .subcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+.card p {
+    text-align: center;
+    font-family: Inter;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 14px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #242628e5;
+}
+.botao .mais {
+    width: 17px;
+    height: 17px;
+    color: white;
+}
+.card .botao .inscricao {
+    color: white;
+    width: 283;
+    text-align: center;
+    height: 40;
+    font-size: 15px;
+    font-weight: Semi bold;
+    border-radius: 30px;
+    border-width: 1px;
+    angle: 0 deg;
+    opacity: 1;
+    gap: 15px;
+    top: 266px;
+    left: 147px;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    background-color: #2f9d40;
+    border: 1px solid #24262866;
+    box-shadow: 2px 2px 7px 0px #242628;
+}
+.subcontainer .botao {
+    display: flex;
+    justify-content: flex-end;
+}
+.subcontainer .inscricao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+    background-color: rebeccapurple;
+    border-radius: 5px;
+    font-family: Inter;
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 20px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+@media (max-width: 1024px) {
+    .main-container .wrap {
+        width: 100%;
+        max-width: 630px;
+    }
+}
+@media (max-width: 768px) {
+    .main-container .wrap {
+        width: 100%;
+        max-width: 310px;
+    }
+    .a {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        padding: 10px 0px 10px 0px;
+    }
+    .containerPesquisa {
+        margin: 20px;
+    }
+    .containerPesquisa .lupa {
+        height: 17px;
+        width: 17px;
+        margin-right: 10px;
+    }
+}
