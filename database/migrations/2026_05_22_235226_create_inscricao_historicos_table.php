@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('observacao', 400)->nullable(); 
 
             $table->foreignId('inscricao_id')
-                  ->constrained('inscricao')
+                  ->constrained('inscricaos')
                   ->onDelete('cascade'); 
 
             $table->foreignId('inscricao_status_id')
