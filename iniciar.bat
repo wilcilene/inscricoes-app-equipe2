@@ -6,7 +6,7 @@ echo ========================================
 
 echo.
 echo Instalando dependencias PHP...
-composer install --no-interaction
+call composer install --no-interaction
 
 echo.
 if not exist ".env" (
@@ -27,11 +27,11 @@ pause
 
 echo.
 echo Gerando APP_KEY...
-php artisan key:generate
+call php artisan key:generate
 
 echo.
 echo Limpando caches...
-php artisan optimize:clear
+call php artisan optimize:clear
 
 echo.
 echo ========================================
@@ -49,25 +49,25 @@ set /p DB_OPTION=Digite a opcao (1-5):
 if "%DB_OPTION%"=="1" (
     echo.
     echo Rodando migrations...
-    php artisan migrate
+    call php artisan migrate
 )
 
 if "%DB_OPTION%"=="2" (
     echo.
     echo Rodando migrate:fresh...
-    php artisan migrate:fresh
+    call php artisan migrate:fresh
 )
 
 if "%DB_OPTION%"=="3" (
     echo.
     echo Rodando migrate com seed...
-    php artisan migrate --seed
+    call php artisan migrate --seed
 )
 
 if "%DB_OPTION%"=="4" (
     echo.
     echo Rodando migrate:fresh com seed...
-    php artisan migrate:fresh --seed
+    call php artisan migrate:fresh --seed
 )
 
 if "%DB_OPTION%"=="5" (
@@ -77,11 +77,11 @@ if "%DB_OPTION%"=="5" (
 
 echo.
 echo Instalando dependencias frontend...
-npm install
+call cmd /c npm install
 
 echo.
 echo Buildando assets...
-npm run build
+call cmd /c npm run build
 
 echo.
 echo ========================================
@@ -91,3 +91,5 @@ echo ========================================
 echo.
 echo Para iniciar o servidor:
 echo php artisan serve
+
+pause
