@@ -6,22 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Candidato extends Model
 {
-    protected $fillable = [
-            'cpf', 
-            'data_nascimento', 
-            'nome_social', 
-            'genero', 
-            'naturalidade', 
-            'mae', 
-            'cep', 
-            'logradouro', 
-            'numero', 
-            'complemento', 
-            'bairro', 
-            'estado', 
-            'telefone', 
-            'cidade', 
-            'usuario_id'
-        ];
+    protected $table = 'candidatos';
 
+    protected $fillable = [
+        'cpf',
+        'nome_social',
+        'genero',
+        'naturalidade',
+        'mae',
+        'cep',
+        'logradouro',
+        'numero',
+        'complemento',
+        'bairro',
+        'estado',
+        'cidade',
+        'telefone',
+        'data_nascimento',
+        'usuario_id',
+    ];
+
+    protected $casts = [
+        'data_nascimento' => 'date',
+    ];
 }
