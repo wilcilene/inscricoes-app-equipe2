@@ -15,8 +15,23 @@ return new class extends Migration
 
             $table->id();
 
-            $table->string('cpf',255);
-
+            $table->string('cpf',15);
+            $table->string('nome_social', 255)->nullable(true);
+            $table->string('genero',255);
+            $table->string('naturalidade',255);
+            $table->string('mae',255);
+            $table->string('cep',10);
+            $table->string('logradouro',255);
+            $table->string('numero',4);
+            $table->string('complemento',255)->nullable(true);
+            $table->string('bairro',255);
+            $table->string('estado',255);
+            $table->string('telefone',255)->nullable(true);
+            $table->string('cidade',255);
+            
+                        
+            
+            
             $table->date('data_nascimento');
 
             $table->unsignedBigInteger('usuario_id');
