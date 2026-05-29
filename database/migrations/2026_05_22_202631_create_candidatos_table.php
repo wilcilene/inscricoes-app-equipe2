@@ -27,10 +27,7 @@ return new class extends Migration
             $table->string('bairro',255);
             $table->string('estado',255);
             $table->string('telefone',255)->nullable(true);
-            $table->string('cidade',255);
-            
-                        
-            
+            $table->string('cidade',255);       
             
             $table->date('data_nascimento');
 
