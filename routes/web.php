@@ -2,6 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InscricaoController;
+
+//Parte de inscricao (para upload de arquivos)
+Route::get('/inscricao', [InscricaoController::class, 'create']);
+Route::post('/inscricao', [InscricaoController::class, 'store'])
+    ->name('inscricao.store');
 
 Route::get('/', function () {
     return view('welcome');
