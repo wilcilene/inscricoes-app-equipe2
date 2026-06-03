@@ -249,11 +249,4 @@
         padding: 84px 20px 20px 20px !important;
         min-height: 100vh;
     }
-
-    /* Em telas MUITO pequenas (< 380px) esconde o texto e mantém só o logo */
-    @media (max-width: 379px) {
-        .topbar-brand-text {
-            display: none;
-        }
-    }
 }

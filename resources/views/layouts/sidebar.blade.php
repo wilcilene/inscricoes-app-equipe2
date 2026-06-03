@@ -30,9 +30,11 @@
            title="Início" aria-label="Início">
             <i class="bi bi-house-fill"></i>
         </a>
+         <! {{-- troque o '#' pelo link da página. Ex: href="{{ url('/perfil') }}" --}} -->
         <a href="#" title="Meu perfil" aria-label="Meu perfil">
             <i class="bi bi-person-fill"></i>
         </a>
+         <! {{-- troque o '#' pelo link da página. Ex: href="{{ url('/perfil') }}" --}} -->
         <a href="#" title="Minhas Inscrições" aria-label="Minhas Inscrições">
             <i class="bi bi-person-vcard-fill"></i>
         </a>
@@ -84,7 +86,7 @@
                 </a>
             </li>
             <li>
-                <! {{-- troque o '#' pelo link da página. Ex: href="{{ url('/inscricoes') }}" --}} -->
+                 <! {{-- troque o '#' pelo link da página. Ex: href="{{ url('/perfil') }}" --}} -->
                 <a href="#">
                     <i class="bi bi-person-vcard-fill me-3 fs-5"></i> Minhas Inscrições
                 </a>
