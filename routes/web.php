@@ -17,4 +17,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get("/interna", function(){
+    return view('layouts.interna');
+});
+
+Route::get("/externa", function(){
+    return view('autenticacao.login');
+});
+
 require __DIR__.'/auth.php';
+
