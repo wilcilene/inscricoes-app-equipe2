@@ -45,10 +45,11 @@
 
             <div class="mural-cards">
 
-                @foreach (array_reverse($editais) as $edital)
+                @foreach ($editais as $edital)
 
 
-                    <div class="edital-card" data-date="{{ $edital->data_fim_inscr }}">
+                    <div class="edital-card {{ $edital->data_fim_inscr < $hoje ? 'expirado' : '' }}"
+                         data-date="{{ $edital->data_fim_inscr }}">
 
                         <h1 class="edital">{{ $edital->nome }}</h1>
 
@@ -63,7 +64,7 @@
                             </div>
 
                             <div class="edital-data">
-                                Data Limite: {{ $edital->data_fim_inscr }}
+                                Data Limite:{{ \Carbon\Carbon::parse($edital->data_fim_inscr)->format('d/m/Y') }}
                             </div>
 
                         </div>
@@ -74,23 +75,55 @@
                                 {{ \Illuminate\Support\Str::limit($edital->descricao, 80, '...') }}
                             </p>
 
-                            <div class="edital-botao">
+                                @if($ehAdmin)
+                                    <div class = "edital-botao-adm">
+                                        <a href="{{ route('login') }}">
 
-                                <a href="{{ route('login') }}">
+                                            <button class="inscricao">
 
-                                    <button class="inscricao">
+                                                <span class="mais">
+                                                    <img src="{{ asset('img/editar.png') }}" alt="mais">
+                                                </span>
 
-                                        <span class="mais">
-                                            <img src="{{ asset('img/mais.png') }}" alt="mais">
-                                        </span>
+                                                Editar
 
-                                        REALIZAR INSCRICAO
+                                            </button>
 
-                                    </button>
+                                        </a>
 
-                                </a>
+                                        <form action="{{ route('edital.remover', $edital->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
 
-                            </div>
+                                            <button class="inscricao" type="submit">
+                                                <span class="mais">
+                                                    <img src="{{ asset('img/x.png') }}" alt="mais">
+                                                </span>
+
+                                                Remover
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                @else
+                                    @if($edital->data_fim_inscr >= $hoje)
+                                    <div class = "edital-botao">
+                                        <a href="{{ route('login') }}">
+
+                                            <button class="inscricao">
+
+                                                <span class="mais">
+                                                    <img src="{{ asset('img/mais.png') }}" alt="mais">
+                                                </span>
+
+                                                REALIZAR INSCRICAO
+
+                                            </button>
+
+                                        </a>
+                                    </div>
+                                    @endif
+                                @endif
 
                         </div>
 

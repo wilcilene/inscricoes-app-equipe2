@@ -59,20 +59,3 @@ opcao.forEach((botao) => {
         cards.forEach((card) => container.appendChild(card));
     });
 });
-
-///////////card-expirado/////
-//
-//
-const hoje = new Date();
-
-cards.forEach((card) => {
-    const dataCard = new Date(card.dataset.date);
-    if (dataCard < hoje) {
-        card.classList.add("expirado");
-        const botao = card.querySelector(".inscricao");
-        botao.disabled = true;
-        console.log("Já passou");
-    } else {
-        console.log("Ainda está válido");
-    }
-});

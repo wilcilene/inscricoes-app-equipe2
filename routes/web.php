@@ -25,7 +25,7 @@ Route::middleware("auth")->group(function () {
     Route::delete("/profile", [ProfileController::class, "destroy"])->name(
         "profile.destroy",
     );
-    //Route::get("/inicio", [EditalController::class, "index"]);
+    Route::get("/inicio", [EditalController::class, "index"]);
 });
 
 Route::get("/interna", function () {
@@ -36,5 +36,8 @@ Route::get("/externa", function () {
     return view("autenticacao.login");
 })->name("login");
 
-Route::get("/inicio", [EditalController::class, "index"]);
+//Route::get("/inicio", [EditalController::class, "index"])->name("inicio");
+Route::delete("/edital/{id}", [EditalController::class, "removerEdital"])->name(
+    "edital.remover",
+);
 require __DIR__ . "/auth.php";

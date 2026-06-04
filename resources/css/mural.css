@@ -133,7 +133,10 @@ body {
 .expirado {
     background-color: #e0e0e0;
     color: #777;
-    filter: grayscale(1);
+    border-top: 6px solid darkslategray;
+}
+.expirado .edital-data {
+    color: red;
 }
 
 .edital-card .edital {
@@ -197,8 +200,10 @@ body {
 }
 
 .edital-card .descricao {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     text-align: center;
-    margin: 0;
+    margin: 0 10px 0px 10px;
     font-family: Inter;
     font-weight: 500;
     font-size: 14px;
@@ -208,9 +213,15 @@ body {
 .edital-botao {
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 10px;
+}
+.edital-botao-adm {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
-.edital-botao .mais {
+.mais {
     width: 17px;
     height: 17px;
     display: flex;
@@ -218,7 +229,7 @@ body {
     justify-content: center;
 }
 
-.edital-botao .mais img {
+.mais img {
     width: 15px;
     height: 15px;
     object-fit: contain;
@@ -227,21 +238,27 @@ body {
 .edital-card a {
     text-decoration: none;
 }
-.edital-card .edital-botao .inscricao {
+.inscricao {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin: 0px 15px 15px 0px;
+    margin: 0px 15px 0px 15px;
     color: white;
     font-size: 13px;
     font-weight: 600;
     border-radius: 30px;
-    padding: 7px;
+    padding: 7px 15px 7px 15px;
     background-color: #2f9d40;
     border: 1px solid #24262866;
     box-shadow: 1px 1px 4px #242628;
     cursor: pointer;
+}
+.edital-botao-adm .inscricao {
+    background-color: blue;
+}
+.edital-botao-adm form .inscricao {
+    background-color: red;
 }
 
 @media (max-width: 1024px) {
