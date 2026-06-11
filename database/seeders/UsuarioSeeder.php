@@ -6,7 +6,7 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\TipoUsuario;
-
+use App\models\User;
 class UsuarioSeeder extends Seeder
 {
     /**
@@ -14,12 +14,23 @@ class UsuarioSeeder extends Seeder
      */
     public function run(): void
     {
-        UserFactory::create([
-            'nome' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => bcrypt('123456'),
-            'tipo_usuario_id' => TipoUsuario::inRandomOrder()->first()?->id,
-
-        ]);
+         $usuarios = [
+            [
+             'nome' => 'Test User',
+             'email' => 'test@example.com',
+             'password' => bcrypt('123456'),
+             'tipo_usuario_id' => TipoUsuario::inRandomOrder()->first()?->id,
+            ],
+            [
+             'nome' => 'Test User2',
+             'email' => 'test2@example.com',
+             'password' => bcrypt('654321'),
+             'tipo_usuario_id' => TipoUsuario::inRandomOrder()->first()?->id,
+            ],
+         
+        ];
+        foreach ($usuarios as $usuario) {
+            User::create($usuario);
+        }
     }
 }

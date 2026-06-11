@@ -18,7 +18,7 @@ class CandidatoFactory extends Factory
     public function definition(): array
     {
         return [
-            [
+            
                 'cpf' => $this->faker->numerify('###.###.###-##'),
                 'nome_social' => $this->faker->name(),
                 'genero' => $this->faker->randomElement(['Masculino', 'Feminino', 'Não binário', 'Prefiro não informar']),
@@ -34,7 +34,7 @@ class CandidatoFactory extends Factory
                 'cidade' => $this->faker->city(),
                 'data_nascimento' => $this->faker->dateTimeBetween('-60 years', '-18 years')->format('Y-m-d'),
                 'usuario_id' =>  1,
-            ],
+            
         ];
     }
 }
