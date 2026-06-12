@@ -8,15 +8,13 @@ use Illuminate\Database\Seeder;
 
 class CandidatoSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+    //mudar para ficar no modelo como o editalseeder, para fazer um exemplo
     public function run(): void
     {
-        $roles = Candidato::factory()->count(50)->create();
+        $candidatos= Candidato::factory()->make()->toArray();
 
-        foreach ($roles as $role) {
-            Candidato::create($role);
+        foreach ($candidatos as $candidato) {
+            Candidato::create($candidato);
         }
     }
 }
