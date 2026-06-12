@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <div class = 'bg-light vh-100'>
-        <p>oi</p>
+        <p>@yield('candidato')</p>
     </div>
 
 @endsection
