@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\EditalController;
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InscricaoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +20,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//temporario henrique
+Route::get('/edital/cadastrar', [EditalController::class, 'create'])->name('edital.formulario');
+Route::post('/edital/cadastrar', [EditalController::class, 'store'])->name('edital.store');
+
 Route::get("/interna", function(){
     return view('layouts.interna');
 });
@@ -25,5 +32,6 @@ Route::get("/externa", function(){
     return view('autenticacao.login');
 });
 
-require __DIR__.'/auth.php';
+
+Route::get('/candidato/{id}', [InscricaoController::class, 'show'])->name('inscricoes.show');
 

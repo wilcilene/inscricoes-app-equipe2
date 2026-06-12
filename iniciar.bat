@@ -18,8 +18,8 @@ echo.
 echo ========================================
 echo Configure o arquivo .env:
 echo.
-echo DB_DATABASE=
-echo DB_USERNAME=
+echo DB_DATABASE= 
+echo DB_USERNAME= 
 echo DB_PASSWORD=
 echo ========================================
 
