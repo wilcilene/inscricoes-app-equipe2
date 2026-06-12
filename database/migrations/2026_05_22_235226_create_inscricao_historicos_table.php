@@ -21,7 +21,7 @@ return new class extends Migration
                   ->onDelete('cascade'); 
 
             $table->foreignId('inscricao_status_id')
-                  ->constrained('inscricao_status')
+                  ->constrained('inscricao_statuses')
                   ->onDelete('restrict'); 
 
             $table->timestamps(); 
