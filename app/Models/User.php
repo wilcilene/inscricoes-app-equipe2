@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo; //oi
 
 #[Fillable(["nome", "email", "password"])]
 #[Hidden(["password", "remember_token"])]
@@ -28,5 +29,10 @@ class User extends Authenticatable //implements MustVerifyEmail
             "email_verified_at" => "datetime",
             "password" => "hashed",
         ];
+    }
+    public function tipoUsuario(): BelongsTo
+    {
+        // Troque 'TipoUsuario' pelo nome real do seu Model da outra tabela
+        return $this->belongsTo(TipoUsuario::class, "tipo_usuario_id");
     }
 }

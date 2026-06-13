@@ -12,6 +12,8 @@
             min-height: 100vh;
         }
     </style>
+
+    @yield('style')
 </head>
 <body>
 
@@ -21,7 +23,7 @@
       @include('components.sidebar')
 
             <!-- Conteúdo das páginas -->
-            <main class="container-fluid p-4 bg-light">
+            <main>
 
                 @yield('conteudo')
 
@@ -30,6 +32,6 @@
         </div>
 
     </div>
-
+ @yield("script")
 </body>
 </html>
