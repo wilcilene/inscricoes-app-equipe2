@@ -1,0 +1,252 @@
+/* Estrutura do computador */
+.sidebar {
+    width: 260px;
+    background-color: #3d3d3d;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px !important;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.pc-sidebar-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.mobile-topbar {
+    display: none;
+}
+
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+/* Logo */
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 50px;
+    padding: 4px 0;
+}
+
+.sidebar-brand svg {
+    flex-shrink: 0;
+}
+
+.sidebar-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    font-family: 'Arial Black', Arial, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.brand-top {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.brand-bottom {
+    color: #c9c9c9;
+    font-size: 18px;
+    font-weight: 900;
+    margin-top: 3px;
+}
+
+/* botões */
+.menu-links {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+
+.menu-links li {
+    margin: 6px 0 !important;
+    list-style-type: none !important;
+}
+
+.menu-links a {
+    text-decoration: none !important;
+    color: #d0d0d0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background-color: transparent;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-links a i {
+    color:#ffffff !important;
+    font-size: 20px !important;
+    display: inline-block !important;
+    margin-right: 10px !important;
+}
+
+.menu-links li.active a,
+.menu-links a:hover {
+    color: #ffffff !important;
+    background-color: #575757;
+}
+
+/* Botão Sair */
+.sidebar-bottom-elements {
+    width: 100%;
+}
+
+#logout-btn {
+    background-color: #242424;
+    color: #d0d0d0;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px 18px;
+    border-radius: 30px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+#logout-btn i {
+    color: #d0d0d0 !important;
+    font-size: 1.2rem !important;
+    display: inline-block !important;
+    margin-right: 15px !important;
+}
+#logout-btn:hover {
+    background-color: #575757;
+    color: #ffffff;
+    border-color: #575757;
+}
+.mobile-topbar {
+    display: none;
+}
+@media (max-width: 768px) {
+
+    /* Sidebar vira topbar no mobile */
+    .sidebar {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 64px !important;
+        padding: 0 !important;
+        background-color: #3d3d3d !important;
+        z-index: 1000;
+    }
+
+    .pc-sidebar-content {
+        display: none !important;
+    }
+
+    .mobile-topbar {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        padding: 0 14px;
+    }
+
+    /* Logo */
+    .topbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        flex-shrink: 0;
+    }
+
+    .topbar-brand svg {
+        flex-shrink: 0;
+    }
+
+    .topbar-brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+        color: #ffffff;
+        font-family: 'Arial Black', Arial, sans-serif;
+        letter-spacing: 0.5px;
+    }
+
+    .brand-line-top {
+        font-size: 14px;
+        font-weight: 900;
+    }
+
+    .brand-line-bottom {
+        font-size: 14px;
+        font-weight: 900;
+        color: #c9c9c9;
+        margin-top: 2px;
+    }
+
+    /* Ícones à direita */
+    .topbar-icons {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+    }
+
+    .topbar-icons a,
+    .topbar-icons button {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 12px !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        text-decoration: none !important;
+        transition: background-color 0.2s, color 0.2s;
+    }
+    .topbar-icons a i,
+    .topbar-icons button i {
+        color: #ffffff !important;
+        font-size: 22px !important;
+        display: inline-block !important;
+        line-height: 1 !important;
+    }
+
+    .topbar-icons a:hover,
+    .topbar-icons a.active {
+        background-color: #575757 !important;
+
+    }
+
+    .topbar-logout-form {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .topbar-icons button:hover {
+        background-color: #dc3545;
+        color: #ffffff;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 84px 20px 20px 20px !important;
+        min-height: 100vh;
+    }
+}

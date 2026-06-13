@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\TipoUsuario;
 
 /**
  * @extends Factory<User>
@@ -24,12 +25,21 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+        return 
+        [
+            [
+             'nome' => 'Test User',
+             'email' => 'test@example.com',
+             'password' => bcrypt('123456'),
+             'tipo_usuario_id' => 1,
+            ],
+            [
+             'nome' => 'Test User2',
+             'email' => 'test2@example.com',
+             'password' => bcrypt('654321'),
+             'tipo_usuario_id' => 2,
+            ],
+         
         ];
     }
 
@@ -38,7 +48,7 @@ class UserFactory extends Factory
      */
     public function unverified(): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn(array $attributes) => [
             'email_verified_at' => null,
         ]);
     }
