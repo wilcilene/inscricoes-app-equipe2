@@ -87,7 +87,7 @@
             </li>
             <li>
                  <! {{-- troque o '#' pelo link da página. Ex: href="{{ url('/perfil') }}" --}} -->
-                <a href="#">
+                <a href="{{ route('saulo') }}">
                     <i class="bi bi-person-vcard-fill me-3 fs-5"></i> Minhas Inscrições
                 </a>
             </li>

@@ -32,6 +32,14 @@ Route::get("/externa", function(){
     return view('autenticacao.login');
 });
 
+Route::get("/saulo", function(){
+    return view('inscricoes.minhasinscr');
+})->name('saulo');
+
+Route::get("/testesidebar", function(){
+    return view('layouts.app');
+});
+
 
 Route::get('/candidato/{id}', [InscricaoController::class, 'show'])->name('inscricoes.show');
 
