@@ -1,3 +1,20 @@
+@extends('layouts.app')
+@section('conteudo')
+<div class="container py-5" style="max-width: 980px;">
+    <h1 class="fw-bold fs-2 mb-0" style="letter-spacing: -0.5px;">Inscrição</h1>
+  <p class="text-secondary mb-4" style="font-size: 0.95rem;">Certifique-se de que os dados estão corretos</p>
+
+
+
+
+
+</div>
+
+
+
+
+
+
 <form method="POST"
       action="{{ route('inscricao.store') }}"
       enctype="multipart/form-data">
@@ -28,3 +45,5 @@
         Enviar
     </button>
 </form>
+
+@endsection
