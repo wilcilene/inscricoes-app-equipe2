@@ -2,7 +2,7 @@
 
 @section('candidato')
 </div></div>
-
+    
 @php $c = $inscricao->candidato; @endphp
 
 <div class="container py-4">
@@ -72,7 +72,7 @@
                                 <div class="fw-semibold">{{ $tipo }} <span class="text-success">✓</span></div>
                                 <small class="text-muted">📄 {{ basename($caminho) }}</small>
                             </div>
-                            <a href="{{ asset('storage/' . $caminho) }}" target="_blank" class="btn btn-outline-secondary btn-sm">📁 Visualizar</a>
+                            <a href="{{ url('/' . $caminho) }}" target="_blank" class="btn btn-outline-secondary btn-sm">📁 Visualizar</a>
                         </div>
                         @endif
                     @endforeach

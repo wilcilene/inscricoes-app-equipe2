@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\EditalController;
-
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InscricaoController;
@@ -34,3 +34,8 @@ Route::get("/externa", function(){
 
 Route::get('/candidato/{id}', [InscricaoController::class, 'show'])->name('inscricoes.show');
 
+//Parte de inscricao (para upload de arquivos)
+Route::get('/inscricao', [InscricaoController::class, 'create']);
+Route::post('/inscricao', [InscricaoController::class, 'store'])
+    ->name('inscricao.store');
+require __DIR__.'/auth.php';
