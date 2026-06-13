@@ -39,7 +39,7 @@
             <i class="bi bi-person-vcard-fill"></i>
         </a>
 
-        <form method="POST" action="{{ route('logout') }}" class="topbar-logout-form">
+        <form method="POST" action="{{ "#" }}" class="topbar-logout-form">
             @csrf
             <button type="submit" title="Sair" aria-label="Sair">
                 <i class="bi bi-box-arrow-left"></i>
@@ -96,7 +96,7 @@
 
     <!-- Botão Sair -->
     <div class="sidebar-bottom-elements">
-        <form method="POST" action="{{ route('logout') }}" class="w-100 m-0">
+        <form method="POST" action="{{ "#" }}" class="w-100 m-0">
             @csrf
             <button type="submit" id="logout-btn">
                 <i class="bi bi-box-arrow-right me-3 fs-5"></i> Sair

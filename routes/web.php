@@ -9,6 +9,7 @@ use App\Http\Controllers\InscricaoController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
