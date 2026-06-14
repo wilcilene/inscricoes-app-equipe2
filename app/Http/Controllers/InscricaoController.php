@@ -45,7 +45,7 @@ class InscricaoController extends Controller
          * └── inscricoes/
          *     └── {id_inscricao}/
          */
-        $pasta = "inscricoes/edital_$request->edital_id"."_Candidato_".Auth::user()->Candidato->id;
+        $pasta = "inscricoes/edital_{$request->edital_id}_candidato_" . Auth::user()->candidato->id;
         $ficha = $request->file('ficha_inscricao')
             ->storeAs(
                 "$pasta",
@@ -106,7 +106,7 @@ class InscricaoController extends Controller
         ]);
 
     } catch (\Exception $e) {
-
+        dd($e->getMessage(), $e->getTraceAsString());
         if (isset($inscricao)) {
             $inscricao->delete();
         }
