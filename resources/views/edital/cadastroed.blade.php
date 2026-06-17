@@ -2,6 +2,13 @@
 
 @section('title', 'Cadastro de Edital')
 
+@section('sidebar-links')
+<li class="nav-item">
+    <a href="{{ route('inicio') }}" class="nav-link text-white"> ⌂ Início</a>
+</li>
+
+@endsection
+
 @section('conteudo')
 
     <h2 class="mb-1">Cadastro de Edital</h2>

@@ -1,5 +1,6 @@
 @extends("layouts.app")
 
+
 @section("script")
     @vite('resources/js/mural.js')
 @endsection
@@ -7,6 +8,7 @@
 @section("style")
     @vite('resources/css/mural.css')
 @endsection
+
 
 @section("conteudo")
 
@@ -77,9 +79,9 @@
 
                                 @if($ehAdmin)
                                     <div class = "edital-botao-adm">
-                                        <a href="{{ route('login') }}">
+                                        <a href="{{ route('edital.formulario') }}">
 
-                                            <button class="inscricao">
+                                            <button class="inscricao"> Cadastrar Edital</button>
 
                                                 <span class="mais">
                                                     <img src="{{ asset('img/editar.png') }}" alt="mais">
