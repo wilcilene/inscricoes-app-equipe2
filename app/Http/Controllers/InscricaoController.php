@@ -5,9 +5,9 @@ use App\Models\Inscricao;
 
 class InscricaoController extends Controller
 {
-    public function show($id)
+public function index($id)
 {
-    $inscricao = Inscricao::with('candidato.usuario', 'edital', 'historicos.status')->findOrFail($id);
+    $inscricao = Inscricao::with('candidato')->findOrFail($id);
     return view('inscricoes.detalhesinscr', compact('inscricao'));
 }
 }
