@@ -15,7 +15,7 @@ Route::get("/dashboard", function () {
     ->middleware(["auth", "verified"])
     ->name("dashboard");
 
-    Route::get("/dashboard", function () {
+Route::get("/dashboard", function () {
     return view("dashboard");
 })
     ->middleware(["auth", "verified"])
@@ -32,20 +32,30 @@ Route::middleware("auth")->group(function () {
         "profile.destroy",
     );
     Route::get("/inicio", [EditalController::class, "index"])->name("inicio"); //deixar aqui
-        
+
+    Route::get("/edital/cadastrar", [EditalController::class, "create"])->name(
+        "edital.formulario",
+    );
+
     Route::delete("/edital/{id}", [
         EditalController::class,
         "removerEdital",
     ])->name("edital.remover");
 
+    Route::get("/edital/{id}", [EditalController::class, "editarEdital"])->name(
+        "edital.editar",
+    );
+    Route::put("/edital/{id}", [
+        EditalController::class,
+        "atualizarEdital",
+    ])->name("atualizar.edital");
 
-
-Route::get("/edital/cadastrar", [EditalController::class, "create"])->name(
-    "edital.formulario",
-);
-Route::post("/edital/cadastrar", [EditalController::class, "store"])->name(
-    "edital.store",
-);
+    Route::get("/edital/cadastrar", [EditalController::class, "create"])->name(
+        "edital.formulario",
+    );
+    Route::post("/edital/cadastrar", [EditalController::class, "store"])->name(
+        "edital.store",
+    );
 });
 Route::get("/interna", function () {
     return view("layouts.interna");

@@ -79,9 +79,11 @@
 
                                 @if($ehAdmin)
                                     <div class = "edital-botao-adm">
-                                        <a href="{{ route('edital.formulario') }}">
+                                        <form action="{{ route('edital.editar', $edital->id) }}" method="GET" class="editar">
+                                            @csrf
+                                            @method('GET')
+                                            <button class="inscricao">
 
-                                            <button class="inscricao"> Cadastrar Edital</button>
 
                                                 <span class="mais">
                                                     <img src="{{ asset('img/editar.png') }}" alt="mais">
@@ -90,8 +92,7 @@
                                                 Editar
 
                                             </button>
-
-                                        </a>
+                                        </form>
 
                                         <form action="{{ route('edital.remover', $edital->id) }}" method="POST">
                                             @csrf
