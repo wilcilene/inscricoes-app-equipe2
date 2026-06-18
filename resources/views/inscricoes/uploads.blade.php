@@ -1,5 +1,36 @@
 @extends('layouts.app')
 @section('conteudo')
+@if(session('sucesso'))
+    <div id="alerta-sucesso"
+         class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0 m-3"
+         style="z-index: 9999;"
+         role="alert">
+        ✅ {{ session('sucesso') }}
+        <button type="button"
+                class="btn-close"
+                onclick="fecharAlerta('alerta-sucesso')">
+        </button>
+    </div>
+@endif
+@if(session('erro'))
+    <div id="alerta-erro"
+         class="alert alert-danger alert-dismissible fade show position-fixed top-0 end-0 m-3"
+         style="z-index: 9999;"
+         role="alert">
+        ❌ {{ session('erro') }}
+        <button type="button"
+                class="btn-close"
+                onclick="fecharAlerta('alerta-erro')">
+        </button>
+    </div>
+@endif
+@php
+    $candidato = Auth::user()->candidato;
+    $genero = $candidato->genero ?? '';
+    $dataNascimento = $candidato->data_nascimento;
+    $idade = $dataNascimento ? $dataNascimento->diffInYears(now()) : null;
+    $precisaMilitar = strtolower($genero) === 'masculino' && $idade !== null && $idade < 45;
+@endphp
 
 <div class="container py-5" style="max-width: 980px;">
 
@@ -42,20 +73,14 @@
             <div class="card-body row">
 
                 <div class="col-md-6">
-                    <label class="form-label">
-                        Nome Completo:
-                    </label>
-
+                    <label class="form-label">Nome Completo:</label>
                     <input class="form-control"
-                           value="{{ Auth::user()->name }}"
+                           value="{{ Auth::user()->nome }}"
                            readonly>
                 </div>
 
                 <div class="col-md-6">
-                    <label class="form-label">
-                        Email:
-                    </label>
-
+                    <label class="form-label">Email:</label>
                     <input class="form-control"
                            value="{{ Auth::user()->email }}"
                            readonly>
@@ -66,11 +91,45 @@
                         Atualize os dados de cadastro antes de confirmar a inscrição
                     </small>
                     <br>
-
-                    <button type="button"
-                            class="btn btn-secondary btn-sm mt-2">
+                    <button type="button" class="btn btn-secondary btn-sm mt-2">
                         Cadastro
                     </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- VAGAS ESPECIAIS -->
+        <div class="card shadow-sm mb-4">
+
+            <div class="card-header bg-white">
+                <h5 class="fw-bold mb-0">Vagas Especiais</h5>
+            </div>
+
+            <div class="card-body">
+                <p class="text-muted">Selecione caso deseje concorrer a uma vaga especial.</p>
+
+                <div class="form-check mb-2">
+                    <input class="form-check-input"
+                           type="checkbox"
+                           name="vaga_pcd"
+                           id="vaga_pcd"
+                           value="1">
+                    <label class="form-check-label" for="vaga_pcd">
+                        PCD — Pessoa com Deficiência
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input"
+                           type="checkbox"
+                           name="vaga_pniq"
+                           id="vaga_pniq"
+                           value="1">
+                    <label class="form-check-label" for="vaga_pniq">
+                        PNIQ — Preto, Pardo ou Indígena
+                    </label>
                 </div>
 
             </div>
@@ -81,9 +140,7 @@
         <div class="card shadow-sm">
 
             <div class="card-header bg-white">
-                <h5 class="fw-bold mb-0">
-                    Documentos
-                </h5>
+                <h5 class="fw-bold mb-0">Documentos</h5>
             </div>
 
             <div class="card-body">
@@ -96,85 +153,75 @@
                 <div class="row g-3">
 
                     @php
-
                     $documentos = [
-
                         'diploma' => [
-                            'titulo'=>'Comprovante de habilitação na área',
-                            'nome'=>''
+                            'titulo' => 'Comprovante de habilitação na área',
+                            'nome' => '',
+                            'desabilitado' => false
                         ],
-
-                        'comprovante_eleitoral'=>[
-                            'titulo'=>'Comprovante de Quitação Eleitoral',
-                            'nome'=>''
+                        'comprovante_eleitoral' => [
+                            'titulo' => 'Comprovante de Quitação Eleitoral',
+                            'nome' => '',
+                            'desabilitado' => false
                         ],
-
-                        'ficha_inscricao'=>[
-                            'titulo'=>'Ficha de Inscrição',
-                            'nome'=>''
+                        'ficha_inscricao' => [
+                            'titulo' => 'Ficha de Inscrição',
+                            'nome' => '',
+                            'desabilitado' => false
                         ],
-
-                        'curriculo_lattes'=>[
-                            'titulo'=>'Currículo Lattes - Exportado',
-                            'nome'=>''
+                        'curriculo_lattes' => [
+                            'titulo' => 'Currículo Lattes - Exportado',
+                            'nome' => '',
+                            'desabilitado' => false
                         ],
-
-                        'identidade'=>[
-                            'titulo'=>'Documento de Identificação',
-                            'nome'=>''
+                        'identidade' => [
+                            'titulo' => 'Documento de Identificação',
+                            'nome' => '',
+                            'desabilitado' => false
                         ],
-
-                        'certificado_militar'=>[
-                            'titulo'=>'Certificado Militar',
-                            'nome'=>''
-                        ]
-
+                        'certificado_militar' => [
+                            'titulo' => 'Certificado Militar',
+                            'nome' => '',
+                            'desabilitado' => !$precisaMilitar
+                        ],
                     ];
-
                     @endphp
 
-                    @foreach($documentos as $campo=>$doc)
+                    @foreach($documentos as $campo => $doc)
 
                     <div class="col-md-6">
-
-                        <div class="border rounded p-3">
-
+                        <div class="border rounded p-3 {{ $doc['desabilitado'] ? 'bg-light opacity-75' : '' }}">
                             <div class="d-flex justify-content-between align-items-center">
 
                                 <div>
+                                    <strong>{{ $doc['titulo'] }}</strong>
 
-                                    <strong>
-                                        {{ $doc['titulo'] }}
-                                    </strong>
+                                    @if($campo === 'certificado_militar' && $doc['desabilitado'])
+                                        <div class="small text-muted mt-1">
+                                            Não exigido para seu perfil
+                                        </div>
+                                    @endif
 
-                                    <div class="small text-muted mt-2"
-                                         id="nome_{{ $campo }}">
-
+                                    <div class="small text-muted mt-2 text-truncate" style="max-width: 200px;" id="nome_{{ $campo }}">
                                         @if($doc['nome'])
                                             📄 {{ $doc['nome'] }}
                                         @else
                                             Nenhum arquivo anexado
                                         @endif
-
                                     </div>
-
                                 </div>
 
-                                <label class="btn btn-light border">
-
+                                <label class="btn btn-light border {{ $doc['desabilitado'] ? 'disabled' : '' }}">
                                     📁 Anexar
-
                                     <input type="file"
                                            name="{{ $campo }}"
                                            hidden
+                                           {{ $doc['desabilitado'] ? 'disabled' : '' }}
                                            onchange="mostrarArquivo(this,'nome_{{ $campo }}')">
-
                                 </label>
 
                             </div>
-
                         </div>
-
                     </div>
 
                     @endforeach
@@ -212,6 +259,18 @@
 </div>
 
 <script>
+    
+function fecharAlerta(id)
+{
+    const alerta = document.getElementById(id);
+    if (alerta) {
+        alerta.classList.remove('show');
+        setTimeout(function() { alerta.remove(); }, 300);
+    }
+}
+
+setTimeout(function() { fecharAlerta('alerta-sucesso'); }, 4000);
+setTimeout(function() { fecharAlerta('alerta-erro'); }, 4000);
 
 function mostrarArquivo(input, campo)
 {
