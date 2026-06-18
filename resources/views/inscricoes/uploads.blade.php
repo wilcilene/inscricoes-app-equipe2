@@ -128,7 +128,7 @@
                            id="vaga_pniq"
                            value="1">
                     <label class="form-check-label" for="vaga_pniq">
-                        PNIQ — Preto, Pardo ou Indígena
+                        PNIQ — Pessoa Negra, Indígena e/ou Quilombola
                     </label>
                 </div>
 
