@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('conteudo')
 
 <div class="container py-5" style="max-width: 980px;">
@@ -48,7 +47,7 @@
                     </label>
 
                     <input class="form-control"
-                           value="{{ Auth::user()->nome }}"
+                           value="{{ Auth::user()->name }}"
                            readonly>
                 </div>
 

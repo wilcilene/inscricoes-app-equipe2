@@ -119,4 +119,12 @@ class InscricaoController extends Controller
 
     return redirect('/inscricao');
 }
+public function listarMinhasInscricoes()
+{
+   
+    $inscricoes = Auth::user()->candidato->inscricoes;
+    //dd($inscricoes);
+    //$inscricoes = Inscricao::with('candidato.usuario', 'edital')->get();
+    return view('inscricoes.minhasinscr', compact('inscricoes'));
+}
 }

@@ -31,6 +31,21 @@ Route::get("/externa", function(){
     return view('autenticacao.login');
 });
 
+Route::get("/cezar", function(){
+    return view('inscricoes.uploads');
+})->name('cezar');
+
+Route::get("/saulo", function(){
+    return view('inscricoes.minhasinscr');
+})->name('saulo');
+
+Route::get("/testesidebar", function(){
+    return view('layouts.app');
+});
+
+Route::get('/inscricoes', [InscricaoController::class, 'listarMinhasInscricoes'])->name('inscricoes.lista');
+
+Route::get("/listains", [InscricaoController::class, 'listarMinhasInscricoes']);
 
 Route::get('/candidato/{id}', [InscricaoController::class, 'show'])->name('inscricoes.show');
 

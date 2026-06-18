@@ -1,5 +1,4 @@
 @extends('layouts.interna')
-
 @section('candidato')
 </div></div>
     
