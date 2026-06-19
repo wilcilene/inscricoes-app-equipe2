@@ -1,62 +1,33 @@
-<aside class="sidebar bg-dark text-white d-none d-lg-block">
+@extends('layouts.app')
 
-            <div class="p-3">
+@section('title', 'Motivo da Rejeição')
 
-                <img src="{{ asset('images/logoif.png') }}" alt="Logo" class="img-fluid w-70">
-            
-                <hr>
+@section('conteudo')
+<h2 class="fw-bold">Motivo da Rejeição</h2>
+<p class="text-muted">Insira o motivo da rejeição da inscrição.</p>
 
-                <ul class="nav flex-column">
-                        @yield('sidebar-links')
-                </ul>
+@if(session('sucesso'))
+    <div class="alert alert-success">{{ session('sucesso') }}</div>
+@endif
+   
+<form action="{{ route('rejeicao.store')}}" method="POST"> 
+    @csrf
+    <div class="mt-4">
+        <input type="hidden" name="inscricao_id" value="{{$inscricao->id}}">
+        <label class="form-label fs-5">Motivo da Rejeição:</label>
+        <textarea 
+            class="form-control @error('observacao') is-invalid @enderror"
+            rows="12" 
+            name="observacao" 
+            placeholder="Digite detalhadamente o motivo do indeferimento...">{{ old('observacao') }}</textarea>
+        @error('observacao')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
 
-            </div>
-
-        </aside>
-
-        
-        <div class="flex-grow-1">
-
-            <nav class="navbar navbar-light bg-light d-lg-none">
-                <div class="container-fluid">
-
-                    <button
-                        class="btn btn-outline-secondary"
-                        type="button"
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#sidebarMobile">
-
-                        ☰
-
-                    </button>
-
-                    <span class="navbar-brand mb-0">
-                        Sistema
-                    </span>
-
-                </div>
-            </nav>
-
-            <div class="offcanvas offcanvas-start d-lg-none"
-                 tabindex="-1"
-                 id="sidebarMobile">
-
-                <div class="offcanvas-header">
-                    
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="offcanvas">
-                    </button>
-
-                </div>
-
-                <div class="offcanvas-body">
-
-                    <ul class="nav flex-column">
-                        @yield('sidebar-links')
-                    </ul>
-
-                </div>
-
-            </div>
+    <div class="d-flex justify-content-end gap-2 mt-4">
+        <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary px-4">Voltar</a>
+        <button type="submit" class="btn btn-success px-4">Confirmar</button>
+    </div>
+</form>
+@endsection

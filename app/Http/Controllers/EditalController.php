@@ -14,8 +14,9 @@ class EditalController extends Controller
     public function index()
     {
         $hoje = date("Y-m-d");
-        $ehAdmin = auth()->user()->tipoUsuario->tipo_usuario == "admin";
-        $editais = Edital::orderBy("data_inicio_inscr", "desc", "id")->get(); //pega os dados da tabela e guarda numa variavel
+        $ehAdmin = Auth::check() && Auth::user()->tipoUsuario?->tipo_usuario == "Admin";        $editais = Edital::orderBy("data_inicio_inscr", "desc")
+                           ->orderBy("id", "desc")
+                           ->get(); //pega os dados da tabela e guarda numa variavel
         return view("edital.mural", compact("editais", "ehAdmin", "hoje"));
     }
 

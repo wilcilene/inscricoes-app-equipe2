@@ -6,17 +6,22 @@ namespace App\Models;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\BelongsTo; //oi
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\TipoUsuario;
 
-#[Fillable(["nome", "email", "password"])]
+#[Fillable(["nome", "email", "password", "tipo_usuario_id"])]
 #[Hidden(["password", "remember_token"])]
 class User extends Authenticatable //implements MustVerifyEmail
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use Notifiable;
+
+     public function tipoUsuario(): BelongsTo
+    {
+        return $this->belongsTo(TipoUsuario::class, 'tipo_usuario_id');
+    }
 
     /**
      * Get the attributes that should be cast.
@@ -29,10 +34,5 @@ class User extends Authenticatable //implements MustVerifyEmail
             "email_verified_at" => "datetime",
             "password" => "hashed",
         ];
-    }
-    public function tipoUsuario(): BelongsTo
-    {
-        // Troque 'TipoUsuario' pelo nome real do seu Model da outra tabela
-        return $this->belongsTo(TipoUsuario::class, "tipo_usuario_id");
     }
 }

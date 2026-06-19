@@ -76,37 +76,32 @@
                             <p class="descricao">
                                 {{ \Illuminate\Support\Str::limit($edital->descricao, 80, '...') }}
                             </p>
+                            @if($ehAdmin)
+                                <div class="edital-botao-adm">
+                                     <a href="{{ route('edital.formulario') }}">
+                                        
+                                        <button class="inscricao" type="button">
+                                            
+                                            <span class="mais">
+                                                <img src="{{ asset('img/editar.png') }}" alt="editar">
+                                            </span>
+                                            
+                                            Editar
+                                        </button>
+                                     </a>
 
-                                @if($ehAdmin)
-                                    <div class = "edital-botao-adm">
-                                        <a href="{{ route('edital.formulario') }}">
+                                    <form action="{{ route('edital.remover', $edital->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="inscricao" type="submit">
+                                            <span class="mais">
+                                                <img src="{{ asset('img/x.png') }}" alt="remover">
+                                            </span>
+                                            Remover
+                                        </button>
+                                    </form>
 
-                                            <button class="inscricao"> Cadastrar Edital</button>
-
-                                                <span class="mais">
-                                                    <img src="{{ asset('img/editar.png') }}" alt="mais">
-                                                </span>
-
-                                                Editar
-
-                                            </button>
-
-                                        </a>
-
-                                        <form action="{{ route('edital.remover', $edital->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button class="inscricao" type="submit">
-                                                <span class="mais">
-                                                    <img src="{{ asset('img/x.png') }}" alt="mais">
-                                                </span>
-
-                                                Remover
-                                            </button>
-                                        </form>
-                                    </div>
-
+                                </div>
                                 @else
                                     @if($edital->data_fim_inscr >= $hoje)
                                     <div class = "edital-botao">
