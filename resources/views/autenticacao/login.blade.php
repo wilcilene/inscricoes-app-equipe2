@@ -2,18 +2,6 @@
 
 @section('form')
 
-@if (session('sucesso'))
-    <div class = "alert alert-success mb-3">{{ session('sucesso') }}</div>
-@endif
-
-@if ($errors->any())
-    <div class="alert alert-danger mb-3">
-        @foreach ($errors->all() as $error)
-            <div> {{ $error }}</div>
-        @endforeach
-    </div>
-@endif
-
 <form method="POST" action="{{route('login')}}">
     @csrf 
 

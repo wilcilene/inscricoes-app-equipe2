@@ -25,4 +25,9 @@ class Candidato extends Model
         //tabela users (model user.php) que guarda o id do usuario dono do regitro 
         return $this->belongsTo(User::class, 'usuario_id');
     }
-}
+
+    public function inscricoes()
+    {
+        return $this->hasMany(Inscricao::class, 'candidato_id');
+    }
+} 

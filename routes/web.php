@@ -28,23 +28,26 @@ Route::middleware('auth')->group(function () {
     Route::get('/retorno/{id}', [InscricaoHistoricoController::class, 'observacao'])->name('rejeicao.form'); 
     Route::post('/inscricoes/rejeitar', [InscricaoHistoricoController::class, 'store'])->name('rejeicao.store');
 
-    // rota laura
-    Route::get('/candidato/{id}', [InscricaoController::class, 'index'])->name('inscricoes.index');
 
-    route::get('/admin/dashboard', function () {
-       return view ('dashboard');  
-    })->name('admin.dashboard');
-
+Route::get("/externa", function () {
+    return view("autenticacao.login");
 });
-    // outra rota vitor 
-    Route::get('/inicio', [EditalController::class, 'index'])->name('inicio');
 
-// rotas henrique
-    Route::get('/edital/cadastrar', [EditalController::class, 'create'])->name('edital.formulario');
-    Route::post('/edital/cadastrar', [EditalController::class, 'store'])->name('edital.store');
+    ->middleware(["auth", "verified"])
+    ->name("dashboard");
 
-Route::get('/interna', function () {
-    return view('layouts.interna');
+Route::middleware("auth")->group(function () {
+
+    Route::get("/inicio", [EditalController::class, "index"])->name("inicio");
+
+    Route::get("/edital/cadastrar", [EditalController::class, "create"])->name("edital.formulario");
+    Route::post("/edital/cadastrar", [EditalController::class, "store"])->name("edital.store");
+
+    Route::delete("/edital/{id}", [EditalController::class, "removerEdital"])->name("edital.remover");
+});
+
+Route::get("/interna", function () {
+    return view("layouts.interna");
 });
 
 // rotas login + cadastro - ana 
@@ -59,5 +62,22 @@ Route::middleware('guest')->group(function () {
         return redirect()->route('login');
     })->name('cadastro.cancelar');
 });
+Route::get("/cesar", function () {
+    return view('inscricoes.uploads');
+})->name('cesar');
 
-require __DIR__.'/auth.php';
+Route::get("/saulo", [InscricaoController::class, 'listarMinhasInscricoes'])->name('saulo');
+
+Route::get("/testesidebar", function () {
+    return view('layouts.app');
+});
+
+Route::get('/inscricoes', [InscricaoController::class, 'listarMinhasInscricoes'])->name('inscricoes.lista');
+Route::get("/listains", [InscricaoController::class, 'listarMinhasInscricoes']);
+Route::get("/candidato/{id}", [InscricaoController::class, "index"])->name("inscricoes.index");
+
+Route::get('/inscricao', [InscricaoController::class, 'create']);
+Route::post('/inscricao', [InscricaoController::class, 'store'])->name('inscricao.store');
+
+require __DIR__ . "/auth.php";
+ 

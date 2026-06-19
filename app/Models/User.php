@@ -10,6 +10,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\TipoUsuario;
+use App\Models\Candidato;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
+
 
 #[Fillable(["nome", "email", "password", "tipo_usuario_id"])]
 #[Hidden(["password", "remember_token"])]
@@ -35,4 +38,8 @@ class User extends Authenticatable //implements MustVerifyEmail
             "password" => "hashed",
         ];
     }
+    public function candidato(){
+        return $this->hasOne(Candidato::class,'usuario_id');
+    }
+
 }

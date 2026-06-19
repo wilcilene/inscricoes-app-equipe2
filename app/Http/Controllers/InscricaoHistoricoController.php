@@ -28,4 +28,5 @@ class InscricaoHistoricoController extends Controller
         "inscricao_status_id"=> $inscricao_status_id
     ]);
     }
+    
 }
