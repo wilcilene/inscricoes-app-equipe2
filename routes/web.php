@@ -55,6 +55,21 @@ Route::get("/externa", function () {
     return view("autenticacao.login");
 })->name("login");
 
+Route::get("/cesar", function(){
+    return view('inscricoes.uploads');
+})->name('cesar');
+
+Route::get("/saulo", function(){
+    return view('inscricoes.minhasinscr');
+})->name('saulo');
+
+Route::get("/testesidebar", function(){
+    return view('layouts.app');
+});
+
+Route::get('/inscricoes', [InscricaoController::class, 'listarMinhasInscricoes'])->name('inscricoes.lista');
+
+Route::get("/listains", [InscricaoController::class, 'listarMinhasInscricoes']);
 Route::get("/candidato/{id}", [InscricaoController::class, "index"])->name(
     "inscricoes.index",
 );
@@ -69,4 +84,9 @@ Route::get("/teste", function () {
     return redirect()->route("inicio");
 })->name("login");
 
+//Parte de inscricao (para upload de arquivos)
+Route::get('/inscricao', [InscricaoController::class, 'create']);
+Route::post('/inscricao', [InscricaoController::class, 'store'])
+    ->name('inscricao.store');
+require __DIR__.'/auth.php';
 require __DIR__ . "/auth.php";

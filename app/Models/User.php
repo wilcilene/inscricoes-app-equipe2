@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Candidato;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
+use App\Models\Inscricao;
 use Illuminate\Database\Eloquent\Relations\BelongsTo; //oi
 
 #[Fillable(["nome", "email", "password"])]
@@ -30,6 +33,10 @@ class User extends Authenticatable //implements MustVerifyEmail
             "password" => "hashed",
         ];
     }
+    public function candidato(){
+        return $this->hasOne(Candidato::class,'usuario_id');
+    }
+
     public function tipoUsuario(): BelongsTo
     {
         // Troque 'TipoUsuario' pelo nome real do seu Model da outra tabela
