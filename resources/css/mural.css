@@ -1,0 +1,287 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.mural-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    max-width: 1920px;
+    background-color: #2426281a;
+}
+
+.mural-container .mural-wrap {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.mural-header {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.mural-header .containerPesquisa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #242628b2;
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    margin: 30px 0;
+    border: 1.5px solid gray;
+    border-radius: 10px;
+}
+.containerPesquisa {
+    display: flex;
+    justify-content: center;
+    aling-items: center;
+}
+.containerPesquisa .lupa {
+    display: flex;
+    justify-content: center;
+    aling-items: center;
+    height: 17px;
+    width: 17px;
+}
+
+.containerPesquisa .lupa img {
+    width: 17px;
+    height: 17px;
+    object-fit: contain;
+}
+
+.containerPesquisa .busca input {
+    width: 150px;
+    background-color: transparent;
+    border: 0;
+    color: #242628b2;
+    outline: none;
+}
+
+.containerPesquisa .filtro {
+    border-left: 2px solid gray;
+    padding: 10px;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.containerPesquisa .filtros {
+    display: flex;
+}
+.containerPesquisa .opcoes {
+    display: none;
+    height: 100px;
+    position: absolute;
+    top: 42px;
+    left: 10px;
+    width: 100%;
+    height: 50px;
+    z-index: 999;
+    flex-direction: column;
+    background: transparent;
+    justify-content: space-between;
+    border-bottom: 2px solid #24262866;
+    border-left: 2px solid #24262866;
+    border-right: 2px solid #24262866;
+}
+
+.containerPesquisa .opcoes h7:houver {
+    background-color: beige;
+}
+.titulo-subtitulo .titulo {
+    font-family: Outfit;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 100%;
+    margin: 0;
+}
+
+.mural-header h1 {
+    color: #242628e5;
+}
+
+.mural-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.edital-card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    max-width: 300px;
+    height: 250px;
+    background: white;
+    border-top: 6px solid #2f9d40;
+    border-radius: 8px;
+}
+
+.expirado {
+    background-color: #e0e0e0;
+    color: #777;
+    border-top: 6px solid darkslategray;
+}
+.expirado .edital-data {
+    color: red;
+}
+
+.edital-card .edital {
+    text-align: center;
+    color: #242628e5;
+    font-family: Outfit;
+    font-weight: 700;
+    font-size: 28px;
+    margin-top: 10px;
+    line-height: 100%;
+}
+
+.edital-card .tipoEdital {
+    text-align: center;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: #242628e5;
+}
+
+.edital-card .img-calendario {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
+
+.edital-card .img-calendario img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: block;
+}
+
+.edital-card .datalimite {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    min-height: 20px;
+    gap: 10px;
+    padding: 4px 10px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    background-color: #2426281a;
+    border-radius: 8px;
+}
+
+.edital-data {
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 15px;
+    color: #242628e5;
+}
+
+.edital-card .subcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.edital-card .descricao {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    margin: 0 10px 0px 10px;
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 14px;
+    color: #242628e5;
+}
+
+.edital-botao {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+.edital-botao-adm {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.mais {
+    width: 17px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mais img {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    display: block;
+}
+.edital-card a {
+    text-decoration: none;
+}
+.inscricao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0px 15px 0px 15px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 7px 15px 7px 15px;
+    background-color: #2f9d40;
+    border: 1px solid #24262866;
+    box-shadow: 1px 1px 4px #242628;
+    cursor: pointer;
+}
+.edital-botao-adm .inscricao {
+    background-color: blue;
+}
+.edital-botao-adm form .inscricao {
+    background-color: red;
+}
+
+@media (max-width: 1024px) {
+    .mural-container .mural-wrap {
+        max-width: 630px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mural-container .mural-wrap {
+        max-width: 310px;
+    }
+
+    .mural-header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .containerPesquisa {
+        margin: 20px;
+    }
+
+    .containerPesquisa .lupa {
+        margin-right: 10px;
+    }
+}

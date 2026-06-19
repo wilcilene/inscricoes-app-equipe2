@@ -7,12 +7,9 @@
                 <hr>
 
                 <ul class="nav flex-column">
-
+                    @yield('sidebar-links')
                     <li class="nav-item">
-                        <a href="{{ route('dashboard') }}"
-                           class="nav-link text-white">
-                            Dashboard
-                        </a>
+                    
                     </li>
 
                 </ul>

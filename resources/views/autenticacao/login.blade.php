@@ -3,6 +3,8 @@
 @section('form')
 
 <form action="{{route('login')}}" method="post">
+<form action="{{route('logar')}}" method="post"> 
+    
 
     <div class="mb-3">
         <label class="form-label">
