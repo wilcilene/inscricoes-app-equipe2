@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Edital extends Model
 {
     use HasFactory;
+    protected $table = 'editals'; 
+    
     protected $fillable = [
      'nome',
      'descricao',

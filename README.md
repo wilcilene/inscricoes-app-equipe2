@@ -11,7 +11,7 @@
 ---
 
 ### Alunos participantes:
-Ana Luiza Corrêa, César Castro, Daniel Mendes, Henrique Avancini, Laura Mondin, Leonardo Denck, Lucas Pitta, Victor Conti, Vitor de Souza, Saulo Resende e William Sant' ana. 
+Ana Luiza Corrêa, César Castro, Daniel Mendes, Henrique Avancini, Laura Mondin, Leonardo Denck, Lucas Pitta, Victor Conti, Vitor de Souza, Saulo Resende e William Sant' Ana. 
 
 --- 
 
@@ -37,6 +37,7 @@ O sistema visa simplificar o processo de inscrição em processos seletivos. Ele
 - [x] **Gestão de Editais:** Visualização de editais abertos e encerrados.
 - [x] **Inscrição:** Fluxo de submissão de documentos e formulários.
 - [x] **Painel de Resultados:** Verificação de status (Aprovado/Reprovado) com busca por nome ou documento.
+- [x] **Painel Administrativo:** Área dedicada para gestão de editais e acompanhamento das inscrições recebidas.
 
 <a id="demo"></a>
 
@@ -68,7 +69,7 @@ Antes de iniciar, é necessário ter instalado:
 
 1. **Clone o repositório**
 ```bash
-https://github.com/wilcilene/inscricoes-app-equipe2.git
+git clone https://github.com/wilcilene/inscricoes-app-equipe2.git
 ```
 
 2. **Acesse a pasta do projeto**

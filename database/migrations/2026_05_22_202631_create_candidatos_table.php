@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+   
     public function up(): void
     {
         Schema::create('candidatos', function (Blueprint $table) {
@@ -35,16 +33,12 @@ return new class extends Migration
 
             $table->foreign('usuario_id')
                 ->references('id')
-                ->on('users');
-
+                ->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down(): void 
     {
         Schema::dropIfExists('candidatos');
     }

@@ -1,25 +1,7 @@
 @extends('layouts.interna')
-
-
-
 @section('candidato')
-</div></div>
-
-
-@section('sidebar-links')
-<li class="nav-item">
-    <a href="{{ route('inicio') }}" class="nav-link text-white"> ⌂ Início</a>
-</li>
-<li class="nav-item">
-    <a href="{{ route('edital.formulario') }}" class="nav-link text-white"> 🖎 Cadastrar Editais</a>
-</li>
-<li class="nav-item">
-    <a href="{{ route('inscricoes.index', $inscricao->id) }}" class="nav-link text-white"> 🗎 Candidaturas</a>
-</li>
-@endsection
-
-
 @php $c = $inscricao->candidato; @endphp
+
 
 <div class="container py-4">
     <h1 class="fw-bold mb-4">Candidatura {{ $c->nome_social ?? $c->usuario->name ?? '-' }}</h1>
@@ -88,7 +70,7 @@
                                 <div class="fw-semibold">{{ $tipo }} <span class="text-success">✓</span></div>
                                 <small class="text-muted">📄 {{ basename($caminho) }}</small>
                             </div>
-                            <a href="{{ asset('storage/' . $caminho) }}" target="_blank" class="btn btn-outline-secondary btn-sm">📁 Visualizar</a>
+                            <a href="{{ url('/' . $caminho) }}" target="_blank" class="btn btn-outline-secondary btn-sm">📁 Visualizar</a>
                         </div>
                         @endif
                     @endforeach
