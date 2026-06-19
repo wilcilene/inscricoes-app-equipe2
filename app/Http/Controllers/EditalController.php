@@ -30,6 +30,33 @@ class EditalController extends Controller
         return view("edital.cadastroed");
     }
 
+    public function editarEdital($id)
+    {
+        $edital = Edital::findOrFail($id);
+        return view("edital.cadastroed", compact("edital"));
+    }
+
+    public function atualizarEdital(Request $request, $id)
+    {
+        $request->validate([
+            "nome" => "required",
+            "descricao" => "required",
+        ]);
+
+        $edital = Edital::findOrFail($id);
+
+        $edital->update([
+            "nome" => $request->nome,
+            "descricao" => $request->descricao,
+            "data_inicio_inscr" => $request->data_inicio_inscr,
+            "data_fim_inscr" => $request->data_fim_inscr,
+            "data_inicio_rev" => $request->data_inicio_rev,
+            "data_fim_rev" => $request->data_fim_rev,
+        ]);
+
+        return redirect()->route("inicio");
+    }
+
     public function store(Request $request)
     {
         $request->validate([

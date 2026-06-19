@@ -254,7 +254,7 @@ body {
     box-shadow: 1px 1px 4px #242628;
     cursor: pointer;
 }
-.edital-botao-adm .inscricao {
+.edital-botao-adm .editar .inscricao {
     background-color: blue;
 }
 .edital-botao-adm form .inscricao {

@@ -16,6 +16,7 @@ Route::middleware("auth")->group(function () {
         return view("dashboard");
     })->name("dashboard");
 
+
     Route::get("/profile", [ProfileController::class, "edit"])->name(
         "profile.edit",
     );
@@ -26,11 +27,18 @@ Route::middleware("auth")->group(function () {
         "profile.destroy",
     );
 
-    // rota do vitor - mural de editais (destino após login)
     Route::delete("/edital/{id}", [
         EditalController::class,
         "removerEdital",
     ])->name("edital.remover");
+
+    Route::get("/edital/{id}", [EditalController::class, "editarEdital"])->name(
+        "edital.editar",
+    );
+    Route::put("/edital/{id}", [
+        EditalController::class,
+        "atualizarEdital",
+    ])->name("atualizar.edital");
 
     // rotas retorno - ana
     Route::get("/retorno/{id}", [
@@ -56,12 +64,6 @@ Route::middleware("auth")->group(function () {
     Route::post("/edital/cadastrar", [EditalController::class, "store"])->name(
         "edital.store",
     );
-
-    Route::delete("/edital/{id}", [
-        EditalController::class,
-        "removerEdital",
-    ])->name("edital.remover");
-});
 
 Route::get("/interna", function () {
     return view("layouts.interna");
