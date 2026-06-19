@@ -25,7 +25,7 @@ return new class extends Migration
 
             $table->string('caminho_comprovante_eleitoral',255);
 
-            $table->string('caminho_certificado_militar',255);
+            $table->string('caminho_certificado_militar',255)->nullable();
 
             $table->tinyInteger('vaga_pcd');
 

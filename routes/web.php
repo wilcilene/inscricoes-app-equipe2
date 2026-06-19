@@ -31,9 +31,9 @@ Route::get("/externa", function(){
     return view('autenticacao.login');
 });
 
-Route::get("/cezar", function(){
+Route::get("/cesar", function(){
     return view('inscricoes.uploads');
-})->name('cezar');
+})->name('cesar');
 
 Route::get("/saulo", function(){
     return view('inscricoes.minhasinscr');

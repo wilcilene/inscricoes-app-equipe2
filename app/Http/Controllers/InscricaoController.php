@@ -24,100 +24,62 @@ class InscricaoController extends Controller
 
     public function store(Request $request)
 {
+    $candidato = Auth::user()->candidato;
+    $idade = $candidato->data_nascimento->diffInYears(now());
+    $precisaMilitar = strtolower($candidato->genero) === 'masculino' && $idade < 45;
     $request->validate([
-        'ficha_inscricao' => 'required|file|mimes:pdf',
-        'identidade' => 'required|file|mimes:pdf',
-        'diploma' => 'required|file|mimes:pdf',
-        'curriculo_lattes' => 'required|file|mimes:pdf',
-        'comprovante_eleitoral' => 'required|file|mimes:pdf',
-        'certificado_militar' => 'required|file|mimes:pdf',
-        // adicionados
-        'edital_id' => 'required|exists:editals,id',
-        'candidato_id' => 'required|exists:candidatos,id',
+        'ficha_inscricao'      => 'required|file|mimes:pdf',
+        'identidade'           => 'required|file|mimes:pdf',
+        'diploma'              => 'required|file|mimes:pdf',
+        'curriculo_lattes'     => 'required|file|mimes:pdf',
+        'comprovante_eleitoral'=> 'required|file|mimes:pdf',
+        'certificado_militar'  => ($precisaMilitar ? 'required' : 'nullable') . '|file|mimes:pdf',
+        'edital_id'            => 'required|exists:editals,id',
+        'candidato_id'         => 'required|exists:candidatos,id',
     ]);
-
-    try {
     
-        /*
-         * Estrutura:
-         *
-         * storage/app/private/
-         * └── inscricoes/
-         *     └── {id_inscricao}/
-         */
-        $pasta = "inscricoes/edital_{$request->edital_id}_candidato_" . Auth::user()->candidato->id;
-        $ficha = $request->file('ficha_inscricao')
-            ->storeAs(
-                "$pasta",
-                "ficha_inscricao.pdf",
-                "local"
-            );
-        
-        $identidade = $request->file('identidade')
-            ->storeAs(
-                "$pasta",
-                "identidade.pdf",
-                "local"
-            );
+    try {
 
-        $diploma = $request->file('diploma')
-            ->storeAs(
-                "$pasta",
-                "diploma.pdf",
-                "local"
-            );
+        $pasta = "inscricoes/edital_{$request->edital_id}_candidato_{$candidato->id}";
 
-        $lattes = $request->file('curriculo_lattes')
-            ->storeAs(
-                "$pasta",
-                "curriculo_lattes.pdf",
-                "local"
-            );
+        $ficha    = $request->file('ficha_inscricao')->storeAs($pasta, 'ficha_inscricao.pdf', 'local');
+        $identidade = $request->file('identidade')->storeAs($pasta, 'identidade.pdf', 'local');
+        $diploma  = $request->file('diploma')->storeAs($pasta, 'diploma.pdf', 'local');
+        $lattes   = $request->file('curriculo_lattes')->storeAs($pasta, 'curriculo_lattes.pdf', 'local');
+        $eleitoral= $request->file('comprovante_eleitoral')->storeAs($pasta, 'comprovante_eleitoral.pdf', 'local');
 
-        $eleitoral = $request->file('comprovante_eleitoral')
-            ->storeAs(
-                "$pasta",
-                "comprovante_eleitoral.pdf",
-                "local"
-            );
-
-        $militar = $request->file('certificado_militar')
-            ->storeAs(
-                "$pasta",
-                "certificado_militar.pdf",
-                "local"
-            );
-
-         // cria inscrição primeiro
+        // Só salva o certificado militar se for exigido
+        $militar = $precisaMilitar
+            ? $request->file('certificado_militar')->storeAs($pasta, 'certificado_militar.pdf', 'local')
+            : null;
+        // Segurança extra: se não precisa do certificado militar mas enviou um arquivo mesmo assim, ignora
+        if (!$precisaMilitar) {
+        $militar = null;
+        }
         $inscricao = Inscricao::create([
-
-            'caminho_fica_inscricao' => $ficha,
-            'caminho_identidade' => $identidade,
-            'caminho_diploma' => $diploma,
-            'caminho_curriculo_lattes' => $lattes,
+            'caminho_fica_inscricao'        => $ficha,
+            'caminho_identidade'            => $identidade,
+            'caminho_diploma'               => $diploma,
+            'caminho_curriculo_lattes'      => $lattes,
             'caminho_comprovante_eleitoral' => $eleitoral,
-            'caminho_certificado_militar' => $militar,
+            'caminho_certificado_militar'   => $militar,
 
-            'vaga_pcd' => 0,
-            'vaga_pniq' => 0,
+            'vaga_pcd'     => $request->boolean('vaga_pcd'),
+            'vaga_pniq'    => $request->boolean('vaga_pniq'),
 
-            'edital_id' => $request->edital_id,
+            'edital_id'    => $request->edital_id,
             'candidato_id' => $request->candidato_id,
         ]);
 
     } catch (\Exception $e) {
-        dd($e->getMessage(), $e->getTraceAsString());
-        if (isset($inscricao)) {
-            $inscricao->delete();
-        }
-
-        return back()->with(
-            'erro',
-            'Erro ao enviar arquivos.'
-        );
+    if (isset($inscricao)) {
+        $inscricao->delete();
     }
 
-    return redirect('/inscricao');
+    return back()->with('erro', 'Erro ao enviar arquivos. Tente novamente.');
+}
+
+    return redirect('/inscricao')->with('sucesso', 'Inscrição realizada com sucesso!');
 }
 public function listarMinhasInscricoes()
 {
