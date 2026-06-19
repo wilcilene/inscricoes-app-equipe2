@@ -3,7 +3,6 @@
 @php $c = $inscricao->candidato; @endphp
 
 
-
 <div class="container py-4">
     <h1 class="fw-bold mb-4">Candidatura {{ $c->nome_social ?? $c->usuario->name ?? '-' }}</h1>
 
