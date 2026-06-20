@@ -58,7 +58,7 @@
 
         @csrf
 
-        <input type="hidden" name="edital_id" value="1">
+        <input type="hidden" name="edital_id" value="{{ old('edital_id', $edital->id ?? '') }}">
         <input type="hidden" name="candidato_id" value="1">
 
         <!-- DADOS PESSOAIS -->
@@ -259,7 +259,7 @@
 </div>
 
 <script>
-    
+
 function fecharAlerta(id)
 {
     const alerta = document.getElementById(id);

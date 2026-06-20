@@ -74,8 +74,8 @@
 
         <!-- botões -->
         <ul class="menu-links">
-            <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
-                <a href="{{ url('/dashboard') }}">
+            <li class="{{ Request::is('/inicio') ? 'active' : '' }}">
+                <a href="{{ url('/inicio') }}">
                     <i class="bi bi-house-fill me-3 fs-5"></i> Início
                 </a>
             </li>

@@ -16,7 +16,6 @@ Route::middleware("auth")->group(function () {
         return view("dashboard");
     })->name("dashboard");
 
-
     Route::get("/profile", [ProfileController::class, "edit"])->name(
         "profile.edit",
     );
@@ -64,7 +63,7 @@ Route::middleware("auth")->group(function () {
     Route::post("/edital/cadastrar", [EditalController::class, "store"])->name(
         "edital.store",
     );
-
+});
 Route::get("/interna", function () {
     return view("layouts.interna");
 });
@@ -116,6 +115,11 @@ Route::get("/listains", [InscricaoController::class, "listarMinhasInscricoes"]);
 Route::get("/candidato/{id}", [InscricaoController::class, "index"])->name(
     "inscricoes.index",
 );
+
+Route::get("/inscreverse/{id}", [
+    InscricaoController::class,
+    "realizarInscricao",
+])->name("inscreverse");
 
 Route::get("/inscricao", [InscricaoController::class, "create"]);
 Route::post("/inscricao", [InscricaoController::class, "store"])->name(
