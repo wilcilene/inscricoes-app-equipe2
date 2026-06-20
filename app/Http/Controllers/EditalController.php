@@ -13,11 +13,26 @@ class EditalController extends Controller
 {
     public function index()
     {
+        $candidato = Auth::user()->candidato;
+        $editaisInscritos = Auth::user()->candidato->inscricoes->pluck(
+            "edital_id",
+        );
         $hoje = date("Y-m-d");
-        $ehAdmin = Auth::check() && Auth::user()->tipoUsuario?->tipo_usuario == "Admin";        $editais = Edital::orderBy("data_inicio_inscr", "desc")
-                           ->orderBy("id", "desc")
-                           ->get(); //pega os dados da tabela e guarda numa variavel
-        return view("edital.mural", compact("editais", "ehAdmin", "hoje"));
+        $ehAdmin =
+            Auth::check() && Auth::user()->tipoUsuario->tipo_usuario == "Admin";
+        $editais = Edital::orderBy("data_inicio_inscr", "desc")
+            ->orderBy("id", "desc")
+            ->get(); //pega os dados da tabela e guarda numa variavel
+        return view(
+            "edital.mural",
+            compact(
+                "editais",
+                "ehAdmin",
+                "hoje",
+                "editaisInscritos",
+                "candidato",
+            ),
+        );
     }
 
     public function removerEdital($id)

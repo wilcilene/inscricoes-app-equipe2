@@ -110,8 +110,27 @@
 
                                 @else
                                     @if($edital->data_fim_inscr >= $hoje)
+                                    @if($editaisInscritos->contains($edital->id))
+                                        <div class = "edital-botao">
+                                            <a href="{{ route('inscricoes.index',$candidato->id) }}">
+
+                                                <button class="inscricao">
+
+                                                    <span class="mais">
+                                                        <img src="{{ asset('img/mais.png') }}" alt="mais">
+                                                    </span>
+
+                                                    ACOMPANHAR INSCRICAO
+
+                                                </button>
+
+                                            </a>
+                                        </div>
+
+
+                                    @else
                                     <div class = "edital-botao">
-                                        <a href="{{ route('login') }}">
+                                        <a href="{{ route('inscreverse',$edital->id) }}">
 
                                             <button class="inscricao">
 
@@ -125,6 +144,7 @@
 
                                         </a>
                                     </div>
+                                    @endif
                                     @endif
                                 @endif
 
