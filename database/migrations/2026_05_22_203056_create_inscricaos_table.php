@@ -4,54 +4,32 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
+return new class extends Migration {
+    use Illuminate\Database\Schema\Blueprint;
+    use Illuminate\Support\Facades\Schema;
+
     public function up(): void
     {
-        Schema::create('inscricaos', function (Blueprint $table) {
+        Schema::table("inscricaos", function (Blueprint $table) {
+            $table->dropForeign(["edital_id"]);
 
-            $table->id();
-
-            $table->string('caminho_fica_inscricao',255);
-
-            $table->string('caminho_identidade',255);
-
-            $table->string('caminho_diploma',255);
-
-            $table->string('caminho_curriculo_lattes',255);
-
-            $table->string('caminho_comprovante_eleitoral',255);
-
-            $table->string('caminho_certificado_militar',255)->nullable();
-
-            $table->tinyInteger('vaga_pcd');
-
-            $table->tinyInteger('vaga_pniq');
-
-            $table->unsignedBigInteger('edital_id');
-
-            $table->unsignedBigInteger('candidato_id');
-
-            $table->foreign('edital_id')
-                ->references('id')
-                ->on('editals');
-        
-            $table->foreign('candidato_id')
-                ->references('id')
-                ->on('candidatos');
-
-            $table->timestamps();
+            $table
+                ->foreign("edital_id")
+                ->references("id")
+                ->on("editals")
+                ->onDelete("cascade");
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('inscricaos');
+        Schema::table("inscricaos", function (Blueprint $table) {
+            $table->dropForeign(["edital_id"]);
+
+            $table->foreign("edital_id")->references("id")->on("editals");
+        });
     }
+    /**
+     * Run the migrations.
+     */
 };
