@@ -86,16 +86,6 @@
                            readonly>
                 </div>
 
-                <div class="mt-3">
-                    <small class="text-muted">
-                        Atualize os dados de cadastro antes de confirmar a inscrição
-                    </small>
-                    <br>
-                    <button type="button" class="btn btn-secondary btn-sm mt-2">
-                        Cadastro
-                    </button>
-                </div>
-
             </div>
 
         </div>

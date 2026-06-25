@@ -12,14 +12,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\TipoUsuario;
 use App\Models\Candidato;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 #[Fillable(["nome", "email", "password", "tipo_usuario_id"])]
 #[Hidden(["password", "remember_token"])]
 class User extends Authenticatable //implements MustVerifyEmail
 {
     /** @use HasFactory<UserFactory> */
-    use Notifiable;
+    use HasFactory, Notifiable;
 
      public function tipoUsuario(): BelongsTo
     {
