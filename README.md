@@ -66,7 +66,7 @@ Antes de iniciar, é necessário ter instalado:
 - XAMPP (ou outro ambiente Apache/MySQL)
 - Git
 
-- Caso não queria instalar o Node.js, inserir os seguintes comandos:
+- Caso não queira instalar o Node.js, inserir os seguintes comandos:
 
   - No PowerShell:
     
@@ -140,3 +140,10 @@ Após isso, o sistema estará disponível em:
 ```txt
 http://127.0.0.1:8000
 ```
+
+Ou:
+
+```txt
+.\iniciar.bat
+```
+Que substitui todo o processo do 5 ao 8.
