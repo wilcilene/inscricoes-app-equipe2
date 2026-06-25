@@ -31,6 +31,7 @@ O sistema visa simplificar o processo de inscrição em processos seletivos. Ele
 * **Gerenciamento de Dependências:** Composer e NPM
 * **Servidor Local:** XAMPP
 * **Versionamento:** Git e GitHub
+* **Caso não queira o XAMPP:** Laragon
 
 ## 3. Funcionalidades
 - [x] **Cadastro de Usuários:** Criação de conta com validação de CPF/E-mail.
@@ -64,6 +65,18 @@ Antes de iniciar, é necessário ter instalado:
 - MySQL
 - XAMPP (ou outro ambiente Apache/MySQL)
 - Git
+
+- Caso não queria instalar o Node.js, inserir os seguintes comandos:
+
+  - No PowerShell:
+    
+         Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+  - No vscode:
+ 
+         npm install
+
+         npm run dev
 
 ### Passo a Passo
 
