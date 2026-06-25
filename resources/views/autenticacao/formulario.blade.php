@@ -137,7 +137,7 @@
                 <input type="text" name="cep" id="cep"
                     value="{{ old('cep', $dados['cep'] ?? '') }}"
                     placeholder="00.000-000"
-                    maxlength="9"
+                    maxlength="10"
                     class="{{ $errors->has('cep') ? 'is-invalid' : '' }}"
                     oninput="mascaraCEP(this)"
                     onblur="buscarCEP(this.value)">

@@ -3,25 +3,17 @@
 
     <div class="mobile-topbar">
 
-    <!-- Logo -->
-    <div href="{{ url('/dashboard') }}" class="topbar-brand" aria-label="Início">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 240" width="32" height="44">
-            <circle cx="35" cy="35" r="22" fill="#cf2e2e"/>
-            <rect x="75" y="13" width="44" height="44" rx="8" fill="#2e8b57"/>
-            <rect x="131" y="13" width="44" height="44" rx="8" fill="#2e8b57"/>
-            <rect x="13" y="69" width="44" height="44" rx="8" fill="#2e8b57"/>
-            <rect x="75" y="69" width="44" height="44" rx="8" fill="#2e8b57"/>
-            <rect x="13" y="125" width="44" height="44" rx="8" fill="#2e8b57"/>
-            <rect x="75" y="125" width="44" height="44" rx="8" fill="#2e8b57"/>
-            <rect x="131" y="125" width="44" height="44" rx="8" fill="#2e8b57"/>
-            <rect x="13" y="181" width="44" height="44" rx="8" fill="#2e8b57"/>
-            <rect x="75" y="181" width="44" height="44" rx="8" fill="#2e8b57"/>
-        </svg>
-        <span class="topbar-brand-text">
-            <span class="brand-line-top">INSTITUTO</span>
-            <span class="brand-line-bottom">FEDERAL</span>
-        </span>
-    </div>
+   @auth
+    @if(Auth::user()->is_admin == 2)
+        <a href="{{ route('inscricoes.lista') }}" title="Inscrições" aria-label="Inscrições">
+            <i class="bi bi-list-check"></i>
+        </a>
+    @else
+        <a href="{{ route('inscricoes.lista') }}" title="Minhas Inscrições" aria-label="Minhas Inscrições">
+            <i class="bi bi-person-vcard-fill"></i>
+        </a>
+    @endif
+@endauth
 
     <!-- botões -->
     <nav class="topbar-icons">
@@ -74,24 +66,40 @@
 
         <!-- botões -->
         <ul class="menu-links">
-            <li class="{{ Request::is('/inicio') ? 'active' : '' }}">
-                <a href="{{ url('/inicio') }}">
-                    <i class="bi bi-house-fill me-3 fs-5"></i> Início
+    <li class="{{ Request::is('inicio') ? 'active' : '' }}">
+        <a href="{{ url('/inicio') }}">
+            <i class="bi bi-house-fill me-3 fs-5"></i> Início
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="bi bi-person-fill me-3 fs-5"></i> Meu perfil
+        </a>
+    </li>
+
+    @auth
+        @if(Auth::user()->is_admin == 2)
+            {{-- Links exclusivos do admin --}}
+            <li class="{{ Request::is('inscricoes') ? 'active' : '' }}">
+                <a href="{{ route('inscricoes.lista') }}">
+                    <i class="bi bi-list-check me-3 fs-5"></i> Inscrições
                 </a>
             </li>
-            <li>
-                 <! {{-- troque o '#' pelo link da página. Ex: href="{{ url('/perfil') }}" --}} -->
-                <a href="#">
-                    <i class="bi bi-person-fill me-3 fs-5"></i> Meu perfil
+            <li class="{{ Request::is('edital/cadastrar') ? 'active' : '' }}">
+                <a href="{{ route('edital.formulario') }}">
+                    <i class="bi bi-file-earmark-plus me-3 fs-5"></i> Cadastrar Edital
                 </a>
             </li>
-            <li>
-                 <! {{-- troque o '#' pelo link da página. Ex: href="{{ url('/perfil') }}" --}} -->
-                <a href="{{ route('saulo') }}">
+        @else
+            {{-- Links exclusivos do candidato --}}
+            <li class="{{ Request::is('inscricoes') ? 'active' : '' }}">
+                <a href="{{ route('inscricoes.lista') }}">
                     <i class="bi bi-person-vcard-fill me-3 fs-5"></i> Minhas Inscrições
                 </a>
             </li>
-        </ul>
+        @endif
+    @endauth
+</ul>
     </div>
 
     <!-- Botão Sair -->

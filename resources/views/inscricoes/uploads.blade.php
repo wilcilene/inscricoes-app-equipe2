@@ -59,7 +59,16 @@
         @csrf
 
         <input type="hidden" name="edital_id" value="{{ old('edital_id', $edital->id ?? '') }}">
-        <input type="hidden" name="candidato_id" value="1">
+
+
+<input type="hidden" name="edital_id" value="{{ old('edital_id', $edital->id ?? '') }}">
+<input type="hidden" name="candidato_id" value="{{ $candidato->id ?? '' }}">
+
+
+
+
+
+
 
         <!-- DADOS PESSOAIS -->
         <div class="card shadow-sm mb-4">
@@ -225,11 +234,11 @@
         <!-- BOTÕES -->
         <div class="d-flex justify-content-center gap-3 mt-4">
 
-            <button type="button"
+            <a href="{{ route('inicio') }}"
                     id="btn-cancelar"
                     class="btn btn-secondary px-5">
                 Cancelar
-            </button>
+        </a>
 
             <button type="button"
                     id="btn-rascunho"
