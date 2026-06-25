@@ -127,3 +127,17 @@ Após isso, o sistema estará disponível em:
 ```txt
 http://127.0.0.1:8000/login
 ```
+## Observação para Windows
+
+Se estiver usando o terminal do VS Code no Windows e o comando `npm` for bloqueado pelo PowerShell, execute o comando abaixo:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+Depois, rode novamente:
+
+```bash
+npm install
+npm run dev
+```
