@@ -79,10 +79,23 @@
         </div>
     </div>
 
-    <div class="text-center mt-5">
-        <a href="{{ url()->previous() }}" class="btn btn-success px-5 py-2 fw-semibold">Retornar</a>
-    </div>
-</div>
 
+</div>
+<div class="d-flex justify-content-center align-items-center gap-3 mt-5">
+
+
+        @if($ehAdmin)
+           <form action="{{ route('rejeicao.form', $inscricao->id) }}" method="GET">
+    <button type="submit" class="btn btn-secondary px-5 py-2 fw-semibold">Rejeitar</button>
+</form>
+
+            <form action="{{ route('saulo') }}" method="GET">
+    <input type="hidden" name="inscricao_id" value="{{ $inscricao->id }}">
+    <button type="submit" class="btn btn-success px-5 py-2 fw-semibold">Aprovar</button>
+</form>
+        @else
+            <a href="{{ url()->previous() }}" class="btn btn-success px-5 py-2 fw-semibold">Retornar</a>
+        @endif
+    </div>
 <div><div>
 @endsection
