@@ -31,6 +31,7 @@ O sistema visa simplificar o processo de inscrição em processos seletivos. Ele
 * **Gerenciamento de Dependências:** Composer e NPM
 * **Servidor Local:** XAMPP
 * **Versionamento:** Git e GitHub
+* **Caso não queira instalar o Xampp:** Laragon
 
 ## 3. Funcionalidades
 - [x] **Cadastro de Usuários:** Criação de conta com validação de CPF/E-mail.
@@ -127,6 +128,10 @@ Após isso, o sistema estará disponível em:
 ```txt
 http://127.0.0.1:8000/login
 ```
+Para substituir do passo 5 ao 8:
+
+    .\iniciar.bat
+
 ## Observação para Windows
 
 Se estiver usando o terminal do VS Code no Windows e o comando `npm` for bloqueado pelo PowerShell, execute o comando abaixo:
