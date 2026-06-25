@@ -130,7 +130,7 @@ php artisan migrate
 php artisan serve
 ```
 
-10. **Inicie o Vite**
+10. **Inicie o Vite, cao tenha instalado o Node.js**
 ```bash
 npm run dev
 ```
