@@ -208,8 +208,8 @@
                 <label>Telefone / Celular:</label>
                 <input type="text" name="telefone"
                     value="{{ old('telefone', $dados['telefone'] ?? '') }}"
-                    placeholder="00 0000-0000"
-                    maxlength="15"
+                    placeholder="00 0000-00000"
+                    maxlength="16"
                     oninput="mascaraTelefone(this)">
             </div>
         </div>
@@ -294,7 +294,7 @@ function mascaraCEP(input) {
 }
 
 function mascaraTelefone(input) {
-    let v = input.value.replace(/\D/g, '').substring(0, 10);
+    let v = input.value.replace(/\D/g, '').substring(0, 11);
     v = v.replace(/(\d{2})(\d)/, '$1 $2');
     v = v.replace(/(\d{4})(\d{1,4})$/, '$1-$2');
     input.value = v;
